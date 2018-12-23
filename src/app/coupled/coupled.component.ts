@@ -23,11 +23,11 @@ export class CoupledComponent implements OnInit {
   {
     //flag is directly used
     if(this.featureFlagService.getFlags().myFlag){
-      let defaultAction = this.defaultAction();
-      this.text = this.featureMod(defaultAction);
+      let doBasicStuff = this.doBasicStuff();
+      this.text = this.doAdditionalStuffForMyFeature(doBasicStuff);
     }
     else{
-      this.text = this.defaultAction();
+      this.text = this.doBasicStuff();
     }
   }
 
@@ -40,11 +40,11 @@ export class CoupledComponent implements OnInit {
     }
   }
   
-  private defaultAction(){
+  private doBasicStuff(){
     return "This is DEFAULT"
   }
 
-  private featureMod(defaultVal:string){
+  private doAdditionalStuffForMyFeature(defaultVal:string){
     return defaultVal + ",but FEATURE also did something extra."
   }
 

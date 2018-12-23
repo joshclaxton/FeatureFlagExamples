@@ -22,10 +22,11 @@ export class InjectedComponent implements OnInit {
   {
     //knowledge of feature logic, but not feature flag itself
     if(this.featureDecisionService.shouldChangeText()){
-      this.text = this.featureMod(this.defaultAction());
+      let doBasicStuff = this.doBasicStuff();
+      this.text = this.doAdditionalStuffForMyFeature(doBasicStuff);
     }
     else{
-      this.text = this.defaultAction();
+      this.text = this.doBasicStuff();
     }
   }
 
@@ -39,11 +40,11 @@ export class InjectedComponent implements OnInit {
     }
   }
 
-  private defaultAction(){
+  private doBasicStuff(){
     return "This is DEFAULT"
   }
 
-  private featureMod(defaultVal:string){
+  private doAdditionalStuffForMyFeature(defaultVal:string){
     return defaultVal + ",but FEATURE also did something extra."
   }
 

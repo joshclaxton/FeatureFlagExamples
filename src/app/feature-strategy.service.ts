@@ -10,11 +10,11 @@ export class FeatureStrategyService {
 
   public textStrategy(): string {
     if(this.featureDecisionService.shouldChangeText()){
-      let defaultAction = this.defaultAction();
-      return this.featureMod(defaultAction);
+      let doBasicStuff = this.doBasicStuff();
+      return this.doAdditionalStuffForMyFeature(doBasicStuff);
     }
     else{
-      return this.defaultAction();
+      return this.doBasicStuff();
     }
   }
 
@@ -30,11 +30,11 @@ export class FeatureStrategyService {
 
   
 
-  private defaultAction(){
+  private doBasicStuff(){
     return "This is DEFAULT"
   }
 
-  private featureMod(defaultVal:string){
+  private doAdditionalStuffForMyFeature(defaultVal:string){
     return defaultVal + ",but FEATURE also did something extra."
   }
 }
