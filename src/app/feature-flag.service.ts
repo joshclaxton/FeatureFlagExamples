@@ -9,7 +9,7 @@ export class FeatureFlagService {
   
   constructor() { 
     //pretend this call outs to some Feature Flag provider such as LaunchDarkly or another service
-    this.featureFlags = {coupledFlag:false, injectedFlag:false,strategyFlag:false};
+    this.featureFlags = {injectedFlag:false,strategyFlag:false};
   }
   
   public getFlags(): FeatureFlags{
@@ -18,7 +18,6 @@ export class FeatureFlagService {
 
   //just for testing
   public toggleMyFlag(): void {
-    this.featureFlags.coupledFlag = !this.featureFlags.coupledFlag;
     this.featureFlags.injectedFlag = !this.featureFlags.injectedFlag;
     this.featureFlags.strategyFlag = !this.featureFlags.strategyFlag;
   }

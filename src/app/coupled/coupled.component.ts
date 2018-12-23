@@ -1,6 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FeatureFlags } from '../feature-flags';
-import {FeatureFlagService} from '../feature-flag.service'
 
 @Component({
   selector: 'app-coupled',
@@ -13,7 +11,7 @@ export class CoupledComponent implements OnInit {
   public text:string = this.initVal;
   public name:string = "Coupled";
 
-  constructor(private featureFlagService:FeatureFlagService) { }
+  constructor() { }
 
   ngOnInit() {
     
@@ -21,23 +19,12 @@ export class CoupledComponent implements OnInit {
 
   public myAction():void
   {
-    //flag is directly used
-    if(this.featureFlagService.getFlags().coupledFlag){
-      let doBasicStuff = this.doBasicStuff();
-      this.text = this.doAdditionalStuffForMyFeature(doBasicStuff);
-    }
-    else{
-      this.text = this.doBasicStuff();
-    }
+    let doBasicStuff = this.doBasicStuff();
+    this.text = this.doAdditionalStuffForMyFeature(doBasicStuff);
   }
 
   public getClass():string[]{
-    if(this.featureFlagService.getFlags().coupledFlag){
-      return ['modded'];
-    }
-    else{
-      return [];
-    }
+    return ['modded'];
   }
   
   private doBasicStuff(){
