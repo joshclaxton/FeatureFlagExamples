@@ -10,6 +10,7 @@ export class StrategyComponent implements OnInit {
 
   private initVal = "NO action taken";
   public text:string = this.initVal;
+  public name:string = "Strategy";
 
   constructor(private featureStrategyService: FeatureStrategyService) { }
 
@@ -19,5 +20,9 @@ export class StrategyComponent implements OnInit {
   public myAction():void
   {
     this.text = this.featureStrategyService.textStrategy();
+  }
+
+  public getClass():string[]{
+   return this.featureStrategyService.textClassStrategy();
   }
 }

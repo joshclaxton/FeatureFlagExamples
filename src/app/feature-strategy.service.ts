@@ -18,6 +18,18 @@ export class FeatureStrategyService {
     }
   }
 
+  public textClassStrategy(): string[] {
+    if(this.featureDecisionService.shouldChangeText()){
+      return ['modded'];
+    }
+    else{
+      return [];
+    }
+  }
+
+
+  
+
   private defaultAction(){
     return "This is DEFAULT"
   }

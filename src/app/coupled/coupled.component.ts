@@ -11,6 +11,7 @@ export class CoupledComponent implements OnInit {
 
   private initVal = "NO action taken";
   public text:string = this.initVal;
+  public name:string = "Coupled";
 
   constructor(private featureFlagService:FeatureFlagService) { }
 
@@ -30,6 +31,14 @@ export class CoupledComponent implements OnInit {
     }
   }
 
+  public getClass():string[]{
+    if(this.featureFlagService.getFlags().myFlag){
+      return ['modded'];
+    }
+    else{
+      return [];
+    }
+  }
   
   private defaultAction(){
     return "This is DEFAULT"

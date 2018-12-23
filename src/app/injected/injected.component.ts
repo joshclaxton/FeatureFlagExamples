@@ -11,6 +11,7 @@ export class InjectedComponent implements OnInit {
 
   private initVal = "NO action taken";
   public text:string = this.initVal;
+  public name:string = "Injected";
 
   constructor(private featureDecisionService: FeatureDecisionService) { }
 
@@ -28,7 +29,16 @@ export class InjectedComponent implements OnInit {
     }
   }
 
-  
+  public getClass(): string[]
+  {
+    if(this.featureDecisionService.shouldChangeText()){
+      return ['modded'];
+    }
+    else{
+      return [];
+    }
+  }
+
   private defaultAction(){
     return "This is DEFAULT"
   }
