@@ -9,7 +9,7 @@ export class FeatureStrategyService {
   constructor(private featureDecisionService: FeatureDecisionService) { }
 
   public textStrategy(): string {
-    if(this.featureDecisionService.shouldChangeText()){
+    if(this.featureDecisionService.shouldChangeTextStrategy()){
       let doBasicStuff = this.doBasicStuff();
       return this.doAdditionalStuffForMyFeature(doBasicStuff);
     }
@@ -19,16 +19,13 @@ export class FeatureStrategyService {
   }
 
   public textClassStrategy(): string[] {
-    if(this.featureDecisionService.shouldChangeText()){
+    if(this.featureDecisionService.shouldChangeTextStrategy()){
       return ['modded'];
     }
     else{
       return [];
     }
   }
-
-
-  
 
   private doBasicStuff(){
     return "This is DEFAULT"

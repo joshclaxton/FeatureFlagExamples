@@ -7,6 +7,10 @@ export class FeatureDecisionService {
 
   constructor(private featureFlagService: FeatureFlagService) { }
   public shouldChangeText(): boolean{
-    return this.featureFlagService.getFlags().myFlag;
+    return this.featureFlagService.getFlags().injectedFlag;
+  }
+
+  public shouldChangeTextStrategy(): boolean{
+    return this.featureFlagService.getFlags().strategyFlag;
   }
 }

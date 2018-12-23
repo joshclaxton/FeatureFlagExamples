@@ -1,3 +1,5 @@
 export class FeatureFlags {
-    myFlag: boolean;
+    coupledFlag: boolean;
+    injectedFlag: boolean;
+    strategyFlag:boolean;
 }

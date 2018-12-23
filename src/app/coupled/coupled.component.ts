@@ -22,7 +22,7 @@ export class CoupledComponent implements OnInit {
   public myAction():void
   {
     //flag is directly used
-    if(this.featureFlagService.getFlags().myFlag){
+    if(this.featureFlagService.getFlags().coupledFlag){
       let doBasicStuff = this.doBasicStuff();
       this.text = this.doAdditionalStuffForMyFeature(doBasicStuff);
     }
@@ -32,7 +32,7 @@ export class CoupledComponent implements OnInit {
   }
 
   public getClass():string[]{
-    if(this.featureFlagService.getFlags().myFlag){
+    if(this.featureFlagService.getFlags().coupledFlag){
       return ['modded'];
     }
     else{
