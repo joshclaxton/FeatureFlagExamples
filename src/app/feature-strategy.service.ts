@@ -9,22 +9,12 @@ export class FeatureStrategyService {
   constructor(private featureDecisionService: FeatureDecisionService) { }
 
   public textStrategy(): string {
-    if(this.featureDecisionService.shouldChangeTextStrategy()){
-      let doBasicStuff = this.doBasicStuff();
-      return this.doAdditionalStuffForMyFeature(doBasicStuff);
-    }
-    else{
-      return this.doBasicStuff();
-    }
+    let doBasicStuff = this.doBasicStuff();
+    return this.doAdditionalStuffForMyFeature(doBasicStuff);
   }
 
   public textClassStrategy(): string[] {
-    if(this.featureDecisionService.shouldChangeTextStrategy()){
-      return ['modded'];
-    }
-    else{
-      return [];
-    }
+    return ['modded'];
   }
 
   private doBasicStuff(){

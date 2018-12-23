@@ -9,8 +9,4 @@ export class FeatureDecisionService {
   public shouldChangeText(): boolean{
     return this.featureFlagService.getFlags().injectedFlag;
   }
-
-  public shouldChangeTextStrategy(): boolean{
-    return this.featureFlagService.getFlags().strategyFlag;
-  }
 }
