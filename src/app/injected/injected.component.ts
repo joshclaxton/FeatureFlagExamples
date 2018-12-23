@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {FeatureDecisionService} from '../feature-decision.service'
 
 
 @Component({
@@ -13,31 +12,20 @@ export class InjectedComponent implements OnInit {
   public text:string = this.initVal;
   public name:string = "Injected";
 
-  constructor(private featureDecisionService: FeatureDecisionService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
   public myAction():void
   {
-    //knowledge of feature logic, but not feature flag itself
-    if(this.featureDecisionService.shouldChangeText()){
-      let doBasicStuff = this.doBasicStuff();
-      this.text = this.doAdditionalStuffForMyFeature(doBasicStuff);
-    }
-    else{
-      this.text = this.doBasicStuff();
-    }
+    let doBasicStuff = this.doBasicStuff();
+    this.text = this.doAdditionalStuffForMyFeature(doBasicStuff);
   }
 
   public getClass(): string[]
   {
-    if(this.featureDecisionService.shouldChangeText()){
-      return ['modded'];
-    }
-    else{
-      return [];
-    }
+    return ['modded'];
   }
 
   private doBasicStuff(){
